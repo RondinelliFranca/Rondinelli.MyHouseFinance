@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<h2>Relatórios</h2>
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-1">
+            Categoria:
+        </div>
+        <div class="col-sm-2">
+            @Html.DropDownList("Nome", new SelectList(ViewBag.CategoriaLista, "Id", "Nome"), "Selecione", new { @class = "form-control" })
+        </div>
+        <div class="col-sm-1">
+            Mês Referência:
+        </div>
+        <div class="col-sm-2">
+            <input type="text" class="form-control dataMesPicker" name="mesReferenciaz" id="mesReferencia" maxlength="40">
+        </div>
+        <div class="col-sm-2">
+            <div class="col-md-3">
+                <input type="checkbox" class="checkbox" id="ehCasal">
+            </div>
+            <div class="col-md-9">
+                É do Casal:
+            </div>
+        </div>
+        <div class="col-sm-1">
+            Tipo de Pagamento:
+        </div>
+        <div class="col-sm-2">
+            @Html.DropDownList("Nome", new SelectList(ViewBag.TipoPagamentoLista, "Value", "Description"), "Selecione", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            Responsável:
+        </div>
+        <div class="col-sm-2">
+            @Html.DropDownList("responsavelId", new SelectList(ViewBag.ResponsavelLista, "Id", "Nome"), "Selecione", new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-6 col-md-3">
+        <input type="button" value="Relatório por despesas" class="btn btn-success" onclick="gerarGrafico()" />
+    </div>
+    <div class="col-md-2">
+        <input type="button" value="Resumo pagamento" class="btn btn-success" onclick="gerarGraficoPagamento()" />
+    </div>
+</div>
+
+<canvas id="myChart" width="100" height="100"></canvas>
+<script>
+
+    var myChart = null;
+    function destroyChart() {
+        if (myChart != null) {
+            myChart.destroy();
+        }
+    }
+
+    function gerarGraficoPagamento() {
+        destroyChart();
+        if (validarDados()) {
+
+            $.ajax({
+                url: '@Url.Action("GraficoPagamento", "Relatorio")',
+                type: 'GET',
+                data: {
+                    mesReferencia: mesReferencia.value,
+                    usuario: responsavelId.value
+                },
+                tryCount : 0,
+                retryLimit : 3,
+                success: function (json) {
+                    grafico(json, "bar", "Saldo por usuário");
+                },
+                error : function() {
+                    toastr.error("Deu ruim");
+                }
+            });
+
+        }
+    }
+
+
+
+    function gerarGrafico() {
+        destroyChart();
+        if (validarDados()) {
+
+            $.ajax({
+                url: '@Url.Action("GraficoPorDespesas", "Relatorio")',
+                type: 'GET',
+                data: {
+                    mesReferencia: mesReferencia.value
+                },
+                tryCount : 0,
+                retryLimit : 3,
+                success: function (json) {
+                    grafico(json, "pie", "Grafico por despesas");
+                },
+                error : function() {
+                    toastr.error("Deu ruim");
+                }
+            });
+
+        }
+    }
+
+    function validarDados() {
+
+        if (mesReferencia.value === "") {
+            toastr.info("Buscando de todos os meses!!");
+            return true;
+        }
+        return true;
+    }
+
+    function grafico(data, typeChart, titleChart) {
+        var ctx = document.getElementById("myChart");
+
+         myChart = new Chart(ctx, {
+             type: typeChart,
+            data: {
+                labels: data.Labels,
+                datasets: [{
+                    label: titleChart,
+                    data: data.Valor,
+                    backgroundColor: [
+                        '#B21212',
+                        '#FFFC19',
+                        '#0000FF',
+                        '#088A08',
+                        '#CC2EFA',
+                        '#FF8000',
+                        '#658248',
+                        '#2EFE64',
+                        '#848484'
+
+
+                    ],
+                    borderColor: [
+                        '#000000'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 50,
+                            suggestedMax: 100,
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+</script>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/datetimepicker")
+}
+
+@section css
+{
+    @Styles.Render("~/Content/datetimepickercss")
+}

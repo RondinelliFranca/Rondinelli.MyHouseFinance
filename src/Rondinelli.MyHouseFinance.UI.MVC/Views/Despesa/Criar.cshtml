@@ -1,0 +1,122 @@
+﻿@model Rondinelli.MyHouseFinance.Application.ViewModels.DespesaViewModel
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/datetimepicker")
+}
+
+@section css
+{
+    @Styles.Render("~/Content/datetimepickercss")
+}
+
+@{
+    ViewBag.Title = "Criar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Criar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Despesa</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoriaId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CategoriaId, new SelectList(ViewBag.CategoriaLista, "Id", "Nome"), "Selecione...", new { @id = "ddlCategoriaListaId", @class = "dropdown-toggle form-control comboboxS2" })
+            @Html.ValidationMessageFor(model => model.CategoriaId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MesReferencia, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MesReferencia, new { htmlAttributes = new { @class = "form-control dataMesPicker" } })
+            @Html.ValidationMessageFor(model => model.MesReferencia, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control money2" } })
+            @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DataCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DataCompra, new { htmlAttributes = new { @class = "form-control dataPickerMask dataTPicker" } })
+            @Html.ValidationMessageFor(model => model.DataCompra, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Parcelas, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Parcelas, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Parcelas, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TipoPagamento, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.TipoPagamento, new SelectList(ViewBag.TipoPagamentoLista, "Value", "Description"), "Selecione...", new { @id = "ddlTipoPagamentoListaId", @class = "dropdown-toggle form-control comboboxS2" })
+            @Html.ValidationMessageFor(model => model.TipoPagamento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Casal, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.CheckBoxFor(model => model.Casal, htmlAttributes: new { @checked = true, @id = "EhCasal" })
+                @Html.ValidationMessageFor(model => model.Casal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group usuarioCombo">
+        @Html.LabelFor(model => model.ResponsavelPagadorId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ResponsavelPagadorId, new SelectList(ViewBag.ResponsavelLista, "Id", "Nome"), "Selecione...", new { @id = "ddlResponsavelListaId", @class = "dropdown-toggle form-control comboboxS2" })
+            @Html.ValidationMessageFor(model => model.ResponsavelPagador, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-4 col-md-1">
+            <input type="button" value="Voltar" class="btn btn-danger" onclick="location.href = '@Url.Action("Index", "Despesa")'" />
+        </div>
+        <div class="col-md-1">
+            <input type="submit" value="Salvar" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+    <script>
+        $(document).ready(function () {
+            teste();
+
+        });
+    </script>
+
+
+

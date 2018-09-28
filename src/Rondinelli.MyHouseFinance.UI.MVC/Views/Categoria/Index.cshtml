@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Rondinelli.MyHouseFinance.Application.ViewModels.CategoriaViewModel>
+
+<p>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="button" value="Criar" class="btn btn-primary" onclick="location.href='@Url.Action("Criar", "Categoria")'" />
+        </div>
+    </div>
+    <br />
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <input type="button" value="Editar" class="btn btn-success" onclick="location.href = '@Url.Action("Editar", "Categoria", new {id = item.Id})'" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" value="Deletar" class="btn btn-danger" onclick="location.href = '@Url.Action("Deletar", "Categoria", new {id = item.Id})'" />
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,11 @@
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.deps.json
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.runtimeconfig.json
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.runtimeconfig.dev.json
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\bin\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\obj\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.csprojAssemblyReference.cache
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\obj\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.csproj.CoreCompileInputs.cache
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\obj\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.AssemblyInfoInputs.cache
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util.Teste\obj\Debug\netcoreapp2.1\Rondinelli.MyHouseFinance.Util.Teste.AssemblyInfo.cs

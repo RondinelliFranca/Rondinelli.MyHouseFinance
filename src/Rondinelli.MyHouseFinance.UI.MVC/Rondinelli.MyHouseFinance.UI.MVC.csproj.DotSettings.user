@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=IMAGES_005CCONTROLEFINANCEIRO_002EJFIF/@EntryIndexedValue"></s:String>
+	
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=VIEWS_005CSHARED_005CTOASTR_002ECSS/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=VIEWS_005CSHARED_005C_005FMYLAYOUT/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=IMAGES_005CCONTROLEFINANCEIRO_002EJFIF/@EntryIndexedValue">Images\controleFinanceiro.jfif</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CSHARED_005CTOASTR_002ECSS/@EntryIndexedValue">Views\Shared\toastr.css</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CSHARED_005C_005FMYLAYOUT/@EntryIndexedValue">Views\Shared\_MyLayout</s:String></wpf:ResourceDictionary>
