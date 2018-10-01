@@ -10,6 +10,9 @@ namespace Rondinelli.MyHouseFinance.Infra.Data.EntityConfig
             ToTable("Usuarios");
 
             HasKey(x => x.Id);
+
+            Property(x => x.Nome).IsRequired();
+            Property(x => x.CategoriaPessoa).IsRequired();
         }
     }
 }

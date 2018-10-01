@@ -7,9 +7,13 @@ namespace Rondinelli.MyHouseFinance.Infra.Data.EntityConfig
     {
         public DespesaConfig()
         {
-            ToTable("Despesa");
+            ToTable("Despesas");
 
             HasKey(x => x.Id);
+
+            Property(x => x.MesReferencia).IsRequired();
+            Property(x => x.Valor).IsRequired();
+            Property(x => x.TipoPagamento).IsRequired();
 
             HasRequired(x => x.ResponsavelPagador)
                 .WithMany(d => d.ListaDespesa)

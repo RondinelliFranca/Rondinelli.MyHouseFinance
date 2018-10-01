@@ -18,6 +18,11 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
             _despesaRepository = despesaRepository;
             _usuarioRepository = usuarioRepository;
         }
+
+        public DespesaService()
+        {
+            
+        }
         public void Dispose()
         {
             _despesaRepository.Dispose();
@@ -96,6 +101,36 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
         public void Remover(Guid id)
         {
             _despesaRepository.Remover(id);
+        }
+
+        public bool ValidarDespesa(Despesa despesa)
+        {
+            if (despesa.Id == null)
+            {
+                return false;
+            }
+
+            if (despesa.Descricao == null)
+            {
+                return false;
+            }
+
+            if (despesa.Categoria == null)
+            {
+                return false;
+            }
+
+            if (despesa.MesReferencia == null)
+            {
+                return false;
+            }
+
+            if (despesa.TipoPagamento == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public Usuario ObterRondinelliOuNathalia(bool rond)

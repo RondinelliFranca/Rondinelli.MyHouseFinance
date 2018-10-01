@@ -7,9 +7,12 @@ namespace Rondinelli.MyHouseFinance.Infra.Data.EntityConfig
     {
         public CategoriaConfig()
         {
-            ToTable("Categoria");
+            ToTable("Categorias");
 
             HasKey(x => x.Id);
+
+            Property(x => x.Nome)
+                .IsRequired();
         }
     }
 }

@@ -13,5 +13,6 @@ namespace Rondinelli.MyHouseFinance.Domain.Interfaces.Service
         IEnumerable<Despesa> Buscar(Expression<Func<Despesa, bool>> predicate);
         IEnumerable<Despesa> ObterTodos();
         void Remover(Guid id);
+        bool ValidarDespesa(Despesa despesa);
     }
 }
