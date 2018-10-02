@@ -55,6 +55,14 @@ namespace Rondinelli.MyHouseFinance.UI.MVC
                 "~/Scripts/despesa/despesa.js"
             ));
 
+            #region Relatorio
+
+            bundles.Add(new ScriptBundle("~/bundles/relatorio").Include(
+                "~/Scripts/relatorio/relatorios.js"
+            ));
+
+            #endregion
+
             #endregion
         }
     }

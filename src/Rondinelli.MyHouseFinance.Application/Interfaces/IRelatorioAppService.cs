@@ -6,5 +6,7 @@ namespace Rondinelli.MyHouseFinance.Application.Interfaces
     {
         RelatorioDespesasViewModel GerarGraficoPorDespesas(string mesReferencia);
         RelatorioDespesasViewModel GerarGraficoPagamento(string mesReferencia, string usuarioId);
+        RelatorioDespesasViewModel GraficoDoResponsavel(string mesReferencia, string usuarioId);
+
     }
 }

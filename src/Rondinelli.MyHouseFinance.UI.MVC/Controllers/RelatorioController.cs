@@ -36,9 +36,16 @@ namespace Rondinelli.MyHouseFinance.UI.MVC.Controllers
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GraficoPagamento(string mesReferencia, string usuario)
+        public JsonResult GraficoPagamento(string mesReferencia, string usuarioId)
         {
-            var lista = _relatorioAppService.GerarGraficoPagamento(mesReferencia, usuario);
+            var lista = _relatorioAppService.GerarGraficoPagamento(mesReferencia, usuarioId);
+
+            return Json(lista, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GraficoDoResponsavel(string mesReferencia, string usuarioId)
+        {
+            var lista = _relatorioAppService.GraficoDoResponsavel(mesReferencia, usuarioId);
 
             return Json(lista, JsonRequestBehavior.AllowGet);
         }

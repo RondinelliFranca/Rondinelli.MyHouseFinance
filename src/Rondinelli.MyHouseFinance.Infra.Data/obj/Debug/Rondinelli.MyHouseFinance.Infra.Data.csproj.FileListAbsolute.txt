@@ -1,0 +1,17 @@
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Rondinelli.MyHouseFinance.Infra.Data.dll.config
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Rondinelli.MyHouseFinance.Infra.Data.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Rondinelli.MyHouseFinance.Infra.Data.pdb
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\EntityFramework.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Rondinelli.MyHouseFinance.Domain.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Rondinelli.MyHouseFinance.Domain.pdb
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\EntityFramework.xml
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\obj\Debug\Rondinelli.MyHouseFinance.Infra.Data.csprojAssemblyReference.cache
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\obj\Debug\Rondinelli.MyHouseFinance.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\obj\Debug\Rondinelli.MyHouseFinance.Infra.Data.csproj.CopyComplete
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\obj\Debug\Rondinelli.MyHouseFinance.Infra.Data.dll
+C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Infra.Data\obj\Debug\Rondinelli.MyHouseFinance.Infra.Data.pdb

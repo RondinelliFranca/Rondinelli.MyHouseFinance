@@ -369,6 +369,7 @@
     <Content Include="Scripts\plugins\jQuery-Mask-Plugin-master\test\zepto\data.js" />
     <Content Include="Scripts\plugins\jQuery-Mask-Plugin-master\test\zepto\event.js" />
     <Content Include="Scripts\plugins\jQuery-Mask-Plugin-master\test\zepto\zepto.min.js" />
+    <Content Include="Scripts\relatorio\relatorios.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />

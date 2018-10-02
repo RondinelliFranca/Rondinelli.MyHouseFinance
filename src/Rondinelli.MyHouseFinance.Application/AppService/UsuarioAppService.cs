@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Rondinelli.MyHouseFinance.Application.Interfaces;
 using Rondinelli.MyHouseFinance.Application.ViewModels;
@@ -48,7 +49,7 @@ namespace Rondinelli.MyHouseFinance.Application.AppService
 
         public IEnumerable<UsuarioViewModel> ObterTodos()
         {
-            return Mapper.Map<IEnumerable<Usuario>, IEnumerable<UsuarioViewModel>>(_usuarioService.ObterTodos());
+            return Mapper.Map<IEnumerable<Usuario>, IEnumerable<UsuarioViewModel>>(_usuarioService.ObterTodos().OrderBy(x => x.Nome));
         }
 
         public void Deletar(Guid id)

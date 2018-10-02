@@ -13,8 +13,9 @@ namespace Rondinelli.MyHouseFinance.Util.Enum
         public static EnumCategoriaPessoa TRABALHO = new EnumCategoriaPessoa("Trabalho", "Colegas");
         public static EnumCategoriaPessoa SOGRA = new EnumCategoriaPessoa("Sogra", "Claudia");
         public static EnumCategoriaPessoa SOGRO = new EnumCategoriaPessoa("Sogro", "Zé");
-        public static EnumCategoriaPessoa PARENTES = new EnumCategoriaPessoa("Sogro", "Zé");
+        public static EnumCategoriaPessoa PARENTES = new EnumCategoriaPessoa("Parentes", "Parentes");
         public static EnumCategoriaPessoa VO = new EnumCategoriaPessoa("Antônia", "Vo");
+        public static EnumCategoriaPessoa EU = new EnumCategoriaPessoa("Rondinelli", "Eu");
 
 
 
@@ -40,7 +41,8 @@ namespace Rondinelli.MyHouseFinance.Util.Enum
                 SOGRA,
                 SOGRO,
                 PARENTES,
-                VO
+                VO, 
+                EU
 
             };
             return list;

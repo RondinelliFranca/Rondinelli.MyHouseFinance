@@ -25,7 +25,7 @@ namespace Rondinelli.MyHouseFinance.Application.ViewModels
 
         [Display(Name = "Data da Compra")]
         [Required]
-        public DateTime? DataCompra { get; set; }
+        public DateTime? DataCompra { get; set; } = DateTime.Now;
 
         [Required]
         public int Parcelas { get; set; }

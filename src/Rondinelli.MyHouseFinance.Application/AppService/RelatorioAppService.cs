@@ -45,15 +45,8 @@ namespace Rondinelli.MyHouseFinance.Application.AppService
         public RelatorioDespesasViewModel GerarGraficoPagamento(string mesReferencia, string usuarioId)
         {
             var listaDespesa = !string.IsNullOrWhiteSpace(mesReferencia) ? _despesaAppService.ObterDespesaPorMesDeReferencia(mesReferencia) : _despesaAppService.ObterTodos();
-
-            //if (!string.IsNullOrWhiteSpace(usuarioId))
-            //{
-            //    var usuario = _usuarioAppService.ObterPorId(Guid.Parse(usuarioId));
-            //}
-            //else
-            //{
-            var listaUsuario = _usuarioAppService.ObterTodos();
-            //}
+            
+            var listaUsuario = _usuarioAppService.ObterTodos();            
 
             var relatorio = new RelatorioDespesasViewModel
             {
@@ -68,6 +61,25 @@ namespace Rondinelli.MyHouseFinance.Application.AppService
                                        .Sum(despesa => despesa.Valor);
 
                 relatorio.Valor.Add(soma);
+            }
+
+            return relatorio;
+        }
+
+        public RelatorioDespesasViewModel GraficoDoResponsavel(string mesReferencia, string usuarioId)
+        {
+            var listaDespesa = !string.IsNullOrWhiteSpace(mesReferencia) ? _despesaAppService.ObterDespesaPorMesDeReferencia(mesReferencia) : _despesaAppService.ObterTodos();
+            var relatorio = new RelatorioDespesasViewModel
+            {
+                Labels = new List<string>(),
+                Valor = new List<decimal>()
+            };
+            listaDespesa = listaDespesa.Where(x => x.ResponsavelPagadorId == Guid.Parse(usuarioId));
+
+            foreach (var despesaViewModel in listaDespesa)
+            {
+                relatorio.Labels.Add(despesaViewModel.Descricao);
+                relatorio.Valor.Add(despesaViewModel.Valor);
             }
 
             return relatorio;

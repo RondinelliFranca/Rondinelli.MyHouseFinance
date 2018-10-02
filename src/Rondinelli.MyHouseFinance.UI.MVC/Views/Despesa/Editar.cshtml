@@ -62,9 +62,17 @@
             @Html.LabelFor(model => model.Casal, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Casal)
+                    @Html.CheckBoxFor(model => model.Casal, htmlAttributes: new { @checked = true, @id = "EhCasal" })
                     @Html.ValidationMessageFor(model => model.Casal, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+        
+        <div class="form-group usuarioCombo">
+            @Html.LabelFor(model => model.ResponsavelPagadorId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.ResponsavelPagadorId, new SelectList(ViewBag.ResponsavelLista, "Id", "Nome"), "Selecione...", new { @id = "ddlResponsavelListaId", @class = "dropdown-toggle form-control comboboxS2" })
+                @Html.ValidationMessageFor(model => model.ResponsavelPagador, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -79,3 +87,10 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+    $(document).ready(function () {
+        HabilitarPagador();
+
+    });
+</script>

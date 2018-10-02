@@ -3,7 +3,7 @@
 });
 
 
-function teste() {    
+function HabilitarPagador() {    
     $('#EhCasal').change(function () {
         if ($(this).is(':checked')) {            
             $('.usuarioCombo').hide();
