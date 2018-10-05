@@ -1,5 +1,5 @@
-﻿
-@{
+﻿@{
+
     ViewBag.Title = "Criar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -28,37 +28,36 @@
         </div>
     </div>
     <div class="row">
-        <br/>
+        <br />
     </div>
 </div>
 
-    <div class="row">
-        <div class="col-md-2">
-            <input type="button" value="Relatório Categorias" class="btn btn-success" onclick="gerarGrafico()" />
-        </div>
-        <div class="col-md-2">
-            <input type="button" value="Resumo Pagamento" class="btn btn-success" onclick="gerarGraficoPagamento()" />
-        </div>
-        <div class="col-md-2">
-            <input type="button" value="Despesa por Pessoa" class="btn btn-success" onclick="gerarGraficoPagamentoPorPessoa()" />
-        </div>
+<div class="row">
+    <div class="col-md-2">
+        <input type="button" value="Relatório Categorias" class="btn btn-success" onclick="gerarGrafico()" />
     </div>
+    <div class="col-md-2">
+        <input type="button" value="Resumo Pagamento" class="btn btn-success" onclick="gerarGraficoPagamento()" />
+    </div>
+    <div class="col-md-2">
+        <input type="button" value="Despesa por Pessoa" class="btn btn-success" onclick="gerarGraficoPagamentoPorPessoa()" />
+    </div>
+</div>
 
-    @Html.Hidden("IdUrlDoResponsavel", Url.Action("GraficoDoResponsavel", "Relatorio"))
-    @Html.Hidden("IdUrlPorPagamento", Url.Action("GraficoPagamento", "Relatorio"))
-    @Html.Hidden("IdUrlPorDespesa", Url.Action("GraficoPorDespesas", "Relatorio"))
+@Html.Hidden("IdUrlDoResponsavel", Url.Action("GraficoDoResponsavel", "Relatorio"))
+@Html.Hidden("IdUrlPorPagamento", Url.Action("GraficoPagamento", "Relatorio"))
+@Html.Hidden("IdUrlPorDespesa", Url.Action("GraficoPorDespesas", "Relatorio"))
 
-    <canvas id="myChart" width="100" height="100"></canvas>
+<canvas id="myChart" width="100" height="100"></canvas>
 
-    @section scripts
+@section scripts
 {
-        @Scripts.Render("~/bundles/datetimepicker")
-        @Scripts.Render("~/bundles/relatorio")
+    @Scripts.Render("~/bundles/datetimepicker")
+    @Scripts.Render("~/bundles/relatorio")
+}
 
-    }
-
-    @section css
+@section css
 {
-        @Styles.Render("~/Content/datetimepickercss")
-    }
+    @Styles.Render("~/Content/datetimepickercss")
+}
 

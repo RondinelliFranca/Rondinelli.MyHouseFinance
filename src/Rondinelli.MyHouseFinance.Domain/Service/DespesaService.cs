@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using Rondinelli.MyHouseFinance.Domain.Entities;
@@ -21,7 +22,7 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
 
         public DespesaService()
         {
-            
+
         }
         public void Dispose()
         {
@@ -31,56 +32,62 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
 
         public Despesa Adcionar(Despesa despesa)
         {
-            if (!despesa.Casal) return _despesaRepository.Adicionar(despesa);
-            GerarDespesaCasal(despesa);
-            return null;
+            try
+            {
+                if (despesa.Parcelas != 0)
+                {
+                    for (var i = 0; i < despesa.Parcelas; i++)
+                    {
+                        var despesaParcela = GerarDespesasParceladas(despesa, i);
+                        if (!despesaParcela.Casal)
+                        {
+                            _despesaRepository.Adicionar(despesaParcela);
+                        }
+                        else
+                        {
+                            GerarDespesaCasal(despesaParcela);
+                        }
+                    }
+                    return new Despesa();
+                }
+
+                if (!despesa.Casal) return _despesaRepository.Adicionar(despesa);
+                GerarDespesaCasal(despesa);
+                return new Despesa();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
         }
 
-        private void GerarDespesaCasal(Despesa despesa)
+        private Despesa GerarDespesasParceladas(Despesa despesa, int parcela)
         {
+            var dataMesReferencia = DateTime.Parse(despesa.MesReferencia.ToString(), new CultureInfo("pt-BR"));
+            var dataMesSeguinte = dataMesReferencia.AddMonths(parcela);
+            var dataReferencia = dataMesSeguinte.Month.ToString() + "/" + dataMesSeguinte.Year.ToString();
 
-            var rondinelli = ObterRondinelliOuNathalia(true);
-            var nathy = ObterRondinelliOuNathalia(false);
 
-            var despesa01 = new Despesa
+            var despesaGerada = new Despesa()
             {
-                Casal = true,
-                DataCompra = despesa.DataCompra,
-                Descricao = despesa.Descricao,
                 Id = Guid.NewGuid(),
-                MesReferencia = despesa.MesReferencia,
-                Parcelas = despesa.Parcelas,
-                ResponsavelPagadorId = rondinelli.Id,
-                ResponsavelPagador = rondinelli,
+                Descricao = despesa.Descricao,
+                MesReferencia = dataReferencia,
+                Valor = despesa.Valor,
+                DataCompra = despesa.DataCompra,
+                Parcelas = despesa.Parcelas - parcela,
                 TipoPagamento = despesa.TipoPagamento,
-                Valor = despesa.Valor / 2, 
-                CategoriaId = despesa.CategoriaId
+                Casal = despesa.Casal,
+                ResponsavelPagador = despesa.ResponsavelPagador,
+                ResponsavelPagadorId = despesa.ResponsavelPagadorId,
+                Categoria = despesa.Categoria,
+                CategoriaId = despesa.CategoriaId,                
             };
 
-            var despesa02 = new Despesa
-            {
-                Casal = true,
-                DataCompra = despesa.DataCompra,
-                Descricao = despesa.Descricao,
-                Id = Guid.NewGuid(),
-                MesReferencia = despesa.MesReferencia,
-                Parcelas = despesa.Parcelas,
-                ResponsavelPagadorId = nathy.Id,
-                ResponsavelPagador = nathy,
-                TipoPagamento = despesa.TipoPagamento,
-                Valor = despesa.Valor / 2,
-                CategoriaId = despesa.CategoriaId
-            };
-            _despesaRepository.Adicionar(despesa01);
-            _despesaRepository.Adicionar(despesa02);
-        }
+            return despesaGerada;
 
-
-
-        public Despesa Atualizar(Despesa despesa)
-        {
-            return _despesaRepository.Atualizar(despesa);
         }
 
         public Despesa ObterPorId(Guid id)
@@ -137,5 +144,53 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
         {
             return rond ? _usuarioRepository.Buscar(x => x.Nome == "Rondinelli").FirstOrDefault() : _usuarioRepository.Buscar(x => x.Nome == "Nathalia").FirstOrDefault();
         }
+
+        #region Private 
+
+        private void GerarDespesaCasal(Despesa despesa)
+        {
+
+            var rondinelli = ObterRondinelliOuNathalia(true);
+            var nathy = ObterRondinelliOuNathalia(false);
+
+            var despesa01 = new Despesa
+            {
+                Casal = true,
+                DataCompra = despesa.DataCompra,
+                Descricao = despesa.Descricao,
+                Id = Guid.NewGuid(),
+                MesReferencia = despesa.MesReferencia,
+                Parcelas = despesa.Parcelas,
+                ResponsavelPagadorId = rondinelli.Id,
+                ResponsavelPagador = rondinelli,
+                TipoPagamento = despesa.TipoPagamento,
+                Valor = despesa.Valor / 2,
+                CategoriaId = despesa.CategoriaId
+            };
+
+            var despesa02 = new Despesa
+            {
+                Casal = true,
+                DataCompra = despesa.DataCompra,
+                Descricao = despesa.Descricao,
+                Id = Guid.NewGuid(),
+                MesReferencia = despesa.MesReferencia,
+                Parcelas = despesa.Parcelas,
+                ResponsavelPagadorId = nathy.Id,
+                ResponsavelPagador = nathy,
+                TipoPagamento = despesa.TipoPagamento,
+                Valor = despesa.Valor / 2,
+                CategoriaId = despesa.CategoriaId
+            };
+            _despesaRepository.Adicionar(despesa01);
+            _despesaRepository.Adicionar(despesa02);
+        }
+
+        public Despesa Atualizar(Despesa despesa)
+        {
+            return _despesaRepository.Atualizar(despesa);
+        }
+
+        #endregion
     }
 }

@@ -27,8 +27,7 @@ namespace Rondinelli.MyHouseFinance.Application.ViewModels
         [Required]
         public DateTime? DataCompra { get; set; } = DateTime.Now;
 
-        [Required]
-        public int Parcelas { get; set; }
+        [Required] public int Parcelas { get; set; } = 1;
 
         [Display(Name = "Tipo do pagamento")]
         [Required]
