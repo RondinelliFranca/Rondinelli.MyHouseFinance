@@ -24,6 +24,7 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
         {
 
         }
+
         public void Dispose()
         {
             _despesaRepository.Dispose();
@@ -36,18 +37,7 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
             {
                 if (despesa.Parcelas != 0)
                 {
-                    for (var i = 0; i < despesa.Parcelas; i++)
-                    {
-                        var despesaParcela = GerarDespesasParceladas(despesa, i);
-                        if (!despesaParcela.Casal)
-                        {
-                            _despesaRepository.Adicionar(despesaParcela);
-                        }
-                        else
-                        {
-                            GerarDespesaCasal(despesaParcela);
-                        }
-                    }
+                    ProcessarDespesas(despesa);
                     return new Despesa();
                 }
 
@@ -83,7 +73,9 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
                 ResponsavelPagador = despesa.ResponsavelPagador,
                 ResponsavelPagadorId = despesa.ResponsavelPagadorId,
                 Categoria = despesa.Categoria,
-                CategoriaId = despesa.CategoriaId,                
+                CategoriaId = despesa.CategoriaId,
+                DividirDespesa = despesa.DividirDespesa,
+                Ids = despesa.Ids
             };
 
             return despesaGerada;
@@ -108,6 +100,11 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
         public void Remover(Guid id)
         {
             _despesaRepository.Remover(id);
+        }
+
+        public Despesa Atualizar(Despesa despesa)
+        {
+            return _despesaRepository.Atualizar(despesa);
         }
 
         public bool ValidarDespesa(Despesa despesa)
@@ -147,6 +144,29 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
 
         #region Private 
 
+        private void ProcessarDespesas(Despesa despesa)
+        {
+            for (var i = 0; i < despesa.Parcelas; i++)
+            {
+                var despesaParcela = GerarDespesasParceladas(despesa, i);
+                if (!despesaParcela.Casal)
+                {
+                    if (despesaParcela.DividirDespesa)
+                    {
+                        DividirDespesas(despesaParcela);
+                    }
+                    else
+                    {
+                        _despesaRepository.Adicionar(despesaParcela);
+                    }
+                }
+                else
+                {
+                    GerarDespesaCasal(despesaParcela);
+                }
+            }
+        }
+
         private void GerarDespesaCasal(Despesa despesa)
         {
 
@@ -165,7 +185,7 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
                 ResponsavelPagador = rondinelli,
                 TipoPagamento = despesa.TipoPagamento,
                 Valor = despesa.Valor / 2,
-                CategoriaId = despesa.CategoriaId
+                CategoriaId = despesa.CategoriaId,
             };
 
             var despesa02 = new Despesa
@@ -184,11 +204,30 @@ namespace Rondinelli.MyHouseFinance.Domain.Service
             };
             _despesaRepository.Adicionar(despesa01);
             _despesaRepository.Adicionar(despesa02);
-        }
+        }        
 
-        public Despesa Atualizar(Despesa despesa)
+        private void DividirDespesas(Despesa despesa)
         {
-            return _despesaRepository.Atualizar(despesa);
+            foreach (var t in despesa.Ids)
+            {
+                var usuario = _usuarioRepository.ObterPorId(Guid.Parse(t));
+                var desespaDividia = new Despesa()
+                {
+                    Casal = despesa.Casal,
+                    DataCompra = despesa.DataCompra,
+                    Descricao = despesa.Descricao,
+                    Id = Guid.NewGuid(),
+                    MesReferencia = despesa.MesReferencia,
+                    Parcelas = despesa.Parcelas,
+                    ResponsavelPagadorId = usuario.Id,
+                    ResponsavelPagador = usuario,
+                    TipoPagamento = despesa.TipoPagamento,
+                    Valor = despesa.Valor / despesa.Ids.Count,
+                    CategoriaId = despesa.CategoriaId,
+                };
+
+                _despesaRepository.Adicionar(desespaDividia);
+            }
         }
 
         #endregion

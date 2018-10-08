@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc.Html;
 using Rondinelli.MyHouseFinance.Application.Interfaces;
@@ -68,7 +69,14 @@ namespace Rondinelli.MyHouseFinance.Application.AppService
 
         public RelatorioDespesasViewModel GraficoDoResponsavel(string mesReferencia, string usuarioId)
         {
-            var listaDespesa = !string.IsNullOrWhiteSpace(mesReferencia) ? _despesaAppService.ObterDespesaPorMesDeReferencia(mesReferencia) : _despesaAppService.ObterTodos();
+            var dataReferencia = string.Empty;
+            if (!string.IsNullOrWhiteSpace(mesReferencia))
+            {
+                var dataMesReferencia = DateTime.Parse(mesReferencia, new CultureInfo("pt-BR"));
+                dataReferencia = dataMesReferencia.Month.ToString() + "/" + dataMesReferencia.Year.ToString();
+            }
+            
+            var listaDespesa = !string.IsNullOrWhiteSpace(mesReferencia) ? _despesaAppService.ObterDespesaPorMesDeReferencia(dataReferencia) : _despesaAppService.ObterTodos();
             var relatorio = new RelatorioDespesasViewModel
             {
                 Labels = new List<string>(),

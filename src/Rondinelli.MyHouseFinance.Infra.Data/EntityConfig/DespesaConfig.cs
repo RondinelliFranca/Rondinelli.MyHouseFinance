@@ -22,6 +22,9 @@ namespace Rondinelli.MyHouseFinance.Infra.Data.EntityConfig
             HasRequired(x => x.Categoria)
                 .WithMany(c => c.ListaDespesa)
                 .HasForeignKey(x => x.CategoriaId);
+
+            Ignore(x => x.Ids);
+            Ignore(x => x.DividirDespesa);
         }
     }
 }

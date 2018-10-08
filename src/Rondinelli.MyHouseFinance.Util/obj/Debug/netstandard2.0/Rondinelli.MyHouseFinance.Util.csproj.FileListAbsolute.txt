@@ -1,9 +1,0 @@
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\bin\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.deps.json
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\bin\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.dll
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\bin\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.pdb
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\obj\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.csprojAssemblyReference.cache
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\obj\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.csproj.CoreCompileInputs.cache
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\obj\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.AssemblyInfoInputs.cache
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\obj\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.AssemblyInfo.cs
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\obj\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.dll
-C:\Users\rondinelli.franca\source\repos\Projetos\Rondinelli\Rondinelli.MyHouseFinance\src\Rondinelli.MyHouseFinance.Util\obj\Debug\netstandard2.0\Rondinelli.MyHouseFinance.Util.pdb

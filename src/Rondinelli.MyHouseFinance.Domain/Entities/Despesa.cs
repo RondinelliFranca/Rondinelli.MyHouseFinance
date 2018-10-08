@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Rondinelli.MyHouseFinance.Domain.Entities
 {
@@ -20,5 +21,8 @@ namespace Rondinelli.MyHouseFinance.Domain.Entities
         public Guid ResponsavelPagadorId { get; set; }
         public virtual Categoria Categoria { get; set; }
         public Guid CategoriaId { get; set; }
+        public bool DividirDespesa { get; set; }
+        public List<string> Ids { get; set; }
+
     }
 }

@@ -24,6 +24,7 @@ namespace Rondinelli.MyHouseFinance.UI.MVC.Controllers
             ViewBag.TipoPagamentoLista = EnumTipoPagamento.GetList();
             ViewBag.ResponsavelLista = UsuarioViewModel.ListarTodos();
             ViewBag.CategoriaLista = CategoriaViewModel.ListarTodos();
+            ViewBag.ResposavelListaMulti = new MultiSelectList(UsuarioViewModel.ListarTodos(), "Id", "Nome");
         }
 
         // GET: Despesa
@@ -45,12 +46,13 @@ namespace Rondinelli.MyHouseFinance.UI.MVC.Controllers
             try
             {                
                 if (ModelState.IsValid)
-                {
+                {                   
                     _despesaAppService.Adicionar(despesa);
                     TempData["sucesso"] = EnumMensagem.SALVO.Description;                                        
                 }
                 else
                 {
+                    CarregarCombobox();
                     TempData["erro"] = String.Join(";", ModelState.Values.SelectMany(v => v.Errors).Select(x => x.ErrorMessage));
                     return View(despesa);
                 }
