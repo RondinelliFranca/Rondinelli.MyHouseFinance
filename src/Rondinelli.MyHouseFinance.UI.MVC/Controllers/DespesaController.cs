@@ -32,7 +32,7 @@ namespace Rondinelli.MyHouseFinance.UI.MVC.Controllers
         {
             var todos = _despesaAppService.ObterTodos().ToList();
             return View(todos);
-        }
+        }       
 
         public ActionResult Criar()
         {

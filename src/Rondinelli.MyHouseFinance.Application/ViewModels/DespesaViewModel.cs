@@ -39,9 +39,12 @@ namespace Rondinelli.MyHouseFinance.Application.ViewModels
 
         [Display(Name = "É do casal?")]
         public bool Casal { get; set; } = true;
+
         [Display(Name = "Dividir essa despesa?")]
         public bool DividirDespesa { get; set; } = false;
+
         public UsuarioViewModel ResponsavelPagador { get; set; }
+
         [Display(Name = "Responsável")]
         public Guid? ResponsavelPagadorId { get; set; }
 

@@ -1,5 +1,14 @@
 ﻿@model IEnumerable<Rondinelli.MyHouseFinance.Application.ViewModels.DespesaViewModel>
 
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts
+{
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
+    </script>
+}
+
+
+
 <p>
     <div class="form-group">
         <div class="col-md-10">
@@ -9,77 +18,93 @@
     <br />
 </p>
 <br />
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MesReferencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataCompra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parcelas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoPagamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoriaId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ResponsavelPagadorId)
-        </th>
+<table id="tableDespesa" class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MesReferencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResponsavelPagadorId)
+            </th>
 
-        <th></th>
-    </tr>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
 
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MesReferencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCompra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parcelas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoPagamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ResponsavelPagador.Nome)
-        </td>
-        <td>
-
-            <div class="form-group">
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <input type="button" value="Editar" class="btn btn-success" onclick="location.href = '@Url.Action("Editar", "Despesa", new {id = item.Id})'" />
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesReferencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parcelas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoPagamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResponsavelPagador.Nome)
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="button" value="Editar" class="btn btn-success" onclick="location.href = '@Url.Action("Editar", "Despesa", new {id = item.Id})'" />
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="button" value="Deletar" class="btn btn-danger" onclick="location.href = '@Url.Action("Deletar", "Despesa", new {id = item.Id})'" />
+                </td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="button" value="Deletar" class="btn btn-danger" onclick="location.href = '@Url.Action("Deletar", "Despesa", new {id = item.Id})'" />
+                        </div>
                     </div>
-                </div>
-            </div>            
-        </td>
-    </tr>
-    }
-
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tableDespesa').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"                    
+            }
+        });
+    });
+</script>
+
