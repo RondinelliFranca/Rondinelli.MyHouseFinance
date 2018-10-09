@@ -84,6 +84,7 @@ function validarDados() {
 }
 
 function grafico(data, typeChart, titleChart) {
+    destroyChart();
     var ctx = document.getElementById("myChart");
 
     myChart = new Chart(ctx, {
